@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { skillsData, type Skill, type SkillCategory } from '../../data/skills';
+import { skillsData, type Skill } from '../../data/skills';
 import {
   StyledCategory,
   StyledSkill,
@@ -20,14 +20,16 @@ const Skills = () => {
 
   const [activeFilter, setActiveFilter] = useState('All');
   const filterCategories = useMemo(
-    () => ['All', ...Array.from(new Set(skillsData.map((data) => data.category)))],
+    () => [
+      'All',
+      ...Array.from(new Set(skillsData.map((data) => data.category))),
+    ],
     [],
   );
   const filteredSkills =
     activeFilter === 'All'
       ? skillsData
       : skillsData.filter((data) => data.category === activeFilter);
-
 
   const [highlightStyle, setHighlightStyle] = useState({});
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -64,7 +66,7 @@ const Skills = () => {
         ))}
       </StyledFilterList>
 
-{filteredSkills.map((data, index) => (
+      {filteredSkills.map((data, index) => (
         <StyledSkillsWrapper
           key={data.category}
           $inView={inView}

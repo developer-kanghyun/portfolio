@@ -1,5 +1,9 @@
 import { styled } from 'styled-components';
 
+interface FullPageProps {
+  'data-fullpage'?: string;
+}
+
 export const StyledMain = styled.div`
   align-items: center;
   background-color: #f5f5f5;
@@ -7,7 +11,7 @@ export const StyledMain = styled.div`
   justify-items: center;
 `;
 
-export const StyledFullPageContainer = styled.div.attrs<{}>({
+export const StyledFullPageContainer = styled.div.attrs<FullPageProps>({
   'data-fullpage': 'true',
 })`
   height: 100vh;
