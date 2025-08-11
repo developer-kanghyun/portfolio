@@ -14,12 +14,12 @@ export const StyledTechIcon = styled.img`
   object-fit: contain;
   transition: transform 0.2s ease;
   pointer-events: auto;
-  
+
   /* 모든 브라우저 툴팁 비활성화 */
   &[title] {
     position: relative;
   }
-  
+
   &[title]:hover:before,
   &[title]:hover:after {
     display: none !important;

@@ -7,9 +7,9 @@ export const StyledMain = styled.div`
   justify-items: center;
 `;
 
-export const StyledFullPageContainer = styled.div.attrs({
+export const StyledFullPageContainer = styled.div.attrs<{}>({
   'data-fullpage': 'true',
-} as any)`
+})`
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;

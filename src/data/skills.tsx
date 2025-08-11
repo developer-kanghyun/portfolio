@@ -22,7 +22,7 @@ export interface Skill {
   icon: string;
 }
 
-export interface data {
+export interface SkillCategory {
   category: string;
   name: Skill[];
 }
@@ -53,7 +53,7 @@ export const techDisplayNameMap: { [key: string]: string } = {
   Ubuntu: 'Ubuntu(VM)',
 };
 
-export const skillsData: data[] = [
+export const skillsData: SkillCategory[] = [
   {
     category: 'Frontend',
     name: [

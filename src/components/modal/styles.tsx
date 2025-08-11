@@ -99,7 +99,7 @@ export const StyledModalCloseButton = styled.button`
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background: #f3f4f6;
+  //background: #f3f4f6;
   border: none;
   font-size: 1.25rem;
   cursor: pointer;
@@ -234,25 +234,14 @@ export const StyledTechSection = styled.div`
     margin-top: 0.5rem;
     max-width: none !important;
     overflow-x: auto;
-    
-    /* 스크롤바 스타일링 */
+
+    /* 스크롤바 완전히 숨기기 (hover 시 회색 #C1C1C1 부분 제거) */
     &::-webkit-scrollbar {
-      height: 4px;
+      display: none;
     }
-    
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 2px;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-      background: #c1c1c1;
-      border-radius: 2px;
-    }
-    
-    &::-webkit-scrollbar-thumb:hover {
-      background: #a8a8a8;
-    }
+
+    /* Firefox용 스크롤바 숨기기 */
+    scrollbar-width: none;
   }
 `;
 
@@ -270,7 +259,7 @@ export const StyledFeatureSection = styled.div`
 
 export const StyledFeatureHeader = styled.div`
   margin-bottom: 1rem;
-  
+
   h3 {
     font-size: 1.2rem;
     font-weight: 600;
@@ -302,7 +291,7 @@ export const StyledFeatureListItem = styled.li`
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
   line-height: 1.6;
-  
+
   strong {
     font-weight: 700;
     color: #333;

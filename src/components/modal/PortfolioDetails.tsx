@@ -1,6 +1,6 @@
-import portfolioDetail1 from '../../asset/images/portfolioDetail1.png';
-import portfolioDetail2 from '../../asset/images/portfolioDetail2.png';
-import portfolioDetail3 from '../../asset/images/portfolioDetail3.gif';
+import portpolioDetail1 from '../../asset/images/portpolioDetail1.png';
+import portpolioDetail2 from '../../asset/images/portpolioDetail2.png';
+import portpolioDetail3 from '../../asset/images/portpolioDetail3.gif';
 import {
   StyledDetailsContainer,
   StyledDetailsTitle,
@@ -25,7 +25,7 @@ const PortfolioDetails: React.FC = () => {
           </h3>
         </StyledFeatureHeader>
         <StyledFeatureContent>
-          <StyledFeatureImage src={portfolioDetail1} alt="반응형 디자인 구현" />
+          <StyledFeatureImage src={portpolioDetail1} alt="반응형 디자인 구현" />
           <StyledFeatureText>
             <StyledFeatureList>
               <StyledFeatureListItem>
@@ -52,7 +52,7 @@ const PortfolioDetails: React.FC = () => {
           <h3>모달 기반 상세보기 - 페이지 이동 없이 정보를 제공합니다.</h3>
         </StyledFeatureHeader>
         <StyledFeatureContent>
-          <StyledFeatureImage src={portfolioDetail2} alt="프로젝트 상세 모달" />
+          <StyledFeatureImage src={portpolioDetail2} alt="프로젝트 상세 모달" />
           <StyledFeatureText>
             <StyledFeatureList>
               <StyledFeatureListItem>
@@ -84,7 +84,7 @@ const PortfolioDetails: React.FC = () => {
         </StyledFeatureHeader>
         <StyledFeatureContent>
           <StyledFeatureImage
-            src={portfolioDetail3}
+            src={portpolioDetail3}
             alt="Intersection Observer 애니메이션"
           />
           <StyledFeatureText>

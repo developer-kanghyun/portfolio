@@ -41,12 +41,14 @@ const Header = () => {
 
   useEffect(() => {
     const handleFullPageScroll = (e: Event) => {
-      const scrollY = (e.target as HTMLElement).scrollTop;
-      console.log('Full page scroll:', scrollY); // 디버깅용
-      if (scrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      const target = e.target;
+      if (target && 'scrollTop' in target) {
+        const scrollY = (target as HTMLElement).scrollTop;
+        if (scrollY > 100) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
       }
     };
 
@@ -57,10 +59,7 @@ const Header = () => {
     const timer = setTimeout(() => {
       const fullPageContainer = document.querySelector('[data-fullpage="true"]');
       if (fullPageContainer) {
-        console.log('Full page container found'); // 디버깅용
         fullPageContainer.addEventListener('scroll', handleFullPageScroll);
-      } else {
-        console.log('Full page container not found'); // 디버깅용
       }
     }, 100);
 

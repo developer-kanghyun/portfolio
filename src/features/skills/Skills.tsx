@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { skillsData, type Skill } from '../../data/skills';
+import { skillsData, type Skill, type SkillCategory } from '../../data/skills';
 import {
   StyledCategory,
   StyledSkill,

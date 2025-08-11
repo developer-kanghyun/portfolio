@@ -276,17 +276,20 @@ export const StyledCategory = styled.div`
   font-size: ${responsive.fontSize.h2.desktop};
   width: 30%;
   min-width: 150px;
+  margin-left: 2rem; /* 카테고리를 더 오른쪽으로 */
 
   ${media.tablet} {
     font-size: ${responsive.fontSize.h2.tablet};
     width: 100%;
     margin-bottom: 1.5rem;
+    margin-left: 0; /* 태블릿에서는 중앙 정렬 */
     text-align: center;
   }
 
   ${media.mobile} {
     font-size: ${responsive.fontSize.h2.mobile};
     width: 100%;
+    margin-left: 0; /* 모바일에서는 중앙 정렬 */
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -371,30 +374,33 @@ export const StyledSkill = styled.span`
   img {
     width: 40px;
     height: 40px;
+    margin-top: 5px; /* 이미지를 5px 아래로 */
     transition: transform 0.2s ease-in-out;
 
     ${media.tablet} {
       width: 36px;
       height: 36px;
+      margin-top: 4px;
     }
 
     ${media.mobile} {
       width: 32px;
       height: 32px;
+      margin-top: 3px;
     }
   }
 
   span {
-    font-size: 12px;
+    font-size: 13px; /* 12px에서 13px로 약간 증가 */
     color: #343d46;
     transition: transform 0.2s ease-in-out;
 
     ${media.tablet} {
-      font-size: 11px;
+      font-size: 12px; /* 11px에서 12px로 증가 */
     }
 
     ${media.mobile} {
-      font-size: 10px;
+      font-size: 11px; /* 10px에서 11px로 증가 */
     }
   }
 
