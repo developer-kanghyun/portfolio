@@ -17,22 +17,30 @@ const Project = () => {
     threshold: ANIMATION_CONFIG.THRESHOLD,
   });
 
-  const { isOpen, data: selectedProject, openModal, closeModal } = useModal<ProjectData>();
+  const {
+    isOpen,
+    data: selectedProject,
+    openModal,
+    closeModal,
+  } = useModal<ProjectData>();
 
   return (
     <>
       <StyledProjectContainer id="projects" ref={ref} $inView={inView}>
         <h1>프로젝트</h1>
-        <p>프로젝트 설명</p>
+        <p>진행한 프로젝트들을 설명합니다.</p>
 
         <StyledProjectList>
           {projectsData.map((project, index) => (
             <StyledProject
               key={project.id}
               $inView={inView}
-              $delay={ANIMATION_CONFIG.INITIAL_DELAY + index * ANIMATION_CONFIG.DELAY_INCREMENT}
+              $delay={
+                ANIMATION_CONFIG.INITIAL_DELAY +
+                index * ANIMATION_CONFIG.DELAY_INCREMENT
+              }
             >
-              <ProjectCard 
+              <ProjectCard
                 project={project}
                 onClick={() => openModal(project)}
               />
