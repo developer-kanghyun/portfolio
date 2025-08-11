@@ -1,28 +1,51 @@
-script: |
-  # 1. 작업 디렉토리로 이동
-  cd ~/www
-  
-  # 2. 폴더가 없으면 새로 clone, 있으면 최신 코드로 pull
-  if [ ! -d "portfolio" ] ; then
-    git clone https://github.com/developer-kanghyun/portfolio.git
-  fi
-  cd portfolio
-  git pull
-  
-  # --- 3. .env 파일 생성 (이 부분이 반드시 필요합니다!) ---
-  # deploy.sh를 실행하기 전에, 빌드에 필요한 .env 파일을 먼저 만들어줍니다.
-  echo "Creating .env file on server..."
-  cat << EOF > .env
-  # portfolio 프로젝트에 필요한 모든 환경 변수를 여기에 추가합니다.
-  # 예시:
-  VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
-  VITE_ANOTHER_KEY=${{ secrets.VITE_ANOTHER_KEY }}
-  EOF
-  
-  # 4. deploy.sh 스크립트에 실행 권한 부여
-  echo "Setting execution permission for deploy script..."
-  chmod +x deploy.sh
-  
-  # 5. deploy.sh 스크립트 실행! (포트 번호 전달)
-  echo "Running deploy script..."
-  ./deploy.sh 4001
+# 워크플로우의 전체 이름
+name: Deploy Portfolio via SSH
+
+# 워크플로우 실행 조건
+on:
+  push:
+    branches:
+      - main
+
+# 실행할 작업들의 그룹
+jobs:
+  # 'deploy' 라는 이름의 작업
+  deploy:
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    
+    # 작업의 단계들
+    steps:
+      # 'Run deploy script on server' 라는 이름의 단계
+      - name: Run deploy script on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          # --- with 안에 들어가는 옵션들 ---
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT }}
+          
+          # --- script는 with의 하위 옵션입니다 ---
+          script: |
+            # 1. 작업 디렉토리로 이동
+            cd ~/www
+            
+            # 2. 폴더가 없으면 새로 clone, 있으면 최신 코드로 pull
+            if [ ! -d "portfolio" ] ; then
+              git clone https://github.com/developer-kanghyun/portfolio.git
+            fi
+            cd portfolio
+            git pull
+            
+            # 3. .env 파일 생성
+            cat << EOF > .env
+            # portfolio 프로젝트에 필요한 모든 환경 변수를 여기에 추가
+            # 예: VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
+            EOF
+            
+            # 4. deploy.sh 스크립트에 실행 권한 부여
+            chmod +x deploy.sh
+            
+            # 5. deploy.sh 스크립트 실행 (포트 번호 전달)
+            ./deploy.sh 4002
