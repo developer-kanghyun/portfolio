@@ -44,8 +44,8 @@ React와 TypeScript를 기반으로 제작된 개발자 개인 포트폴리오 �
 
 ### 1. 프로젝트 클론 및 의존성 설치
 ```bash
-git clone https://github.com/developer-kanghyun/portpolio.git
-cd portpolio
+git clone https://github.com/developer-kanghyun/portfolio.git
+cd portfolio
 npm install
 ```
 

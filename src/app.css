@@ -10,3 +10,24 @@ body {
     min-height: 100vh;
     font-family: sans-serif;
 }
+
+/* 모든 title 툴팁 완전히 비활성화 */
+*[title]:hover:before,
+*[title]:hover:after {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    content: none !important;
+}
+
+/* TechStack 이미지 툴팁 비활성화 */
+.tech-stack-container img {
+    pointer-events: auto !important;
+}
+
+.tech-stack-container img:hover:before,
+.tech-stack-container img:hover:after {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}

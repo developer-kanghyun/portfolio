@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Portpolio Docker 배포 스크립트
+# Portfolio Docker 배포 스크립트
 # 사용법: ./deploy.sh [포트번호]
 
 set -e  # 오류 발생시 스크립트 중단
 
 # 기본 설정
-IMAGE_NAME="portpolio"
-CONTAINER_NAME="portpolio-container"
-DEFAULT_PORT="3001"
+IMAGE_NAME="portfolio"
+CONTAINER_NAME="portfolio-container"
+DEFAULT_PORT="4001"
 PORT=${1:-$DEFAULT_PORT}
 
-echo "🚀 Portpolio Docker 배포를 시작합니다..."
+echo "🚀 Portfolio Docker 배포를 시작합니다..."
 
 # 기존 컨테이너 중지 및 제거
 if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then
