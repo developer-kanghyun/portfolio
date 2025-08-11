@@ -13,10 +13,18 @@ export const StyledTechIcon = styled.img`
   height: 32px;
   object-fit: contain;
   transition: transform 0.2s ease;
-
-  /* 기본 브라우저 툴팁 제거 */
-  &[title]:hover::after {
-    display: none;
+  pointer-events: auto;
+  
+  /* 모든 브라우저 툴팁 비활성화 */
+  &[title] {
+    position: relative;
+  }
+  
+  &[title]:hover:before,
+  &[title]:hover:after {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   &:hover {

@@ -49,7 +49,7 @@ export const projectsData: ProjectData[] = [
       '개발자로서의 역량을 어필하기 위한 개인 포트폴리오 웹사이트입니다. 반응형 디자인과 부드러운 애니메이션을 통해 시각적 만족도를 높였으며, 모달 기반의 상세보기로 깊이 있는 정보를 체계적으로 전달합니다.',
     period: '2025년 5월 ~ 6월 (개인 프로젝트)',
     links: {
-      github: 'https://github.com/developer-kanghyun/portpolio',
+      github: 'https://github.com/developer-kanghyun/portfolio',
     },
     details:
       '반응형 디자인, 동적 애니메이션, 모달 기반 상세보기 등의 기능을 통해 사용자에게 인상적인 경험을 제공하는 포트폴리오입니다.',
