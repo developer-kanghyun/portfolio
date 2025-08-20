@@ -50,17 +50,28 @@ const Main = () => {
     );
   }
 
-  // 모바일/태블릿에서는 기존 방식 사용
   return (
     <>
       <Header />
       <StyledMain>
-        <Introduce />
-        <About />
-        <Skills />
-        <Project />
-        <Blog />
-        <Contact />
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Introduce />
+        </div>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <About />
+        </div>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Skills />
+        </div>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Project />
+        </div>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Blog />
+        </div>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Contact />
+        </div>
       </StyledMain>
     </>
   );

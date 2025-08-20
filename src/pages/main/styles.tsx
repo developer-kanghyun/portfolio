@@ -5,10 +5,17 @@ interface FullPageProps {
 }
 
 export const StyledMain = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
   box-sizing: border-box;
-  justify-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden;
 `;
 
 export const StyledFullPageContainer = styled.div.attrs<FullPageProps>({

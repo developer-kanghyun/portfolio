@@ -21,25 +21,27 @@ export const StyledModalContent = styled.div`
   border-radius: 16px;
   width: 90%;
   max-width: 700px;
-  max-height: 85vh;
+  max-height: 75vh;
   overflow-y: auto;
-  padding: 3rem;
+  padding: 2.5rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
 
   ${media.tablet} {
     width: 95%;
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 12px;
-    max-height: 90vh;
+    max-height: 80vh;
+    margin: 1.5rem 0;
   }
 
   ${media.mobile} {
     width: 95%;
     padding: 1.5rem;
     border-radius: 8px;
-    max-height: 95vh;
+    max-height: 85vh;
     margin: 1rem;
   }
 

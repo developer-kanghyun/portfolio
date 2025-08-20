@@ -208,6 +208,15 @@ export const StyledProjectInfo = styled.div`
     margin: 0;
     opacity: 1;
     transform: none;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+
+    ${media.mobile} {
+      word-break: break-word;
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -398,6 +407,9 @@ export const StyledFlicFlowDescription = styled.div`
     font-size: ${responsive.fontSize.body.desktop};
     color: #666;
     line-height: 1.5;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 
     ${media.tablet} {
       font-size: ${responsive.fontSize.body.tablet};
@@ -406,6 +418,7 @@ export const StyledFlicFlowDescription = styled.div`
     ${media.mobile} {
       font-size: ${responsive.fontSize.body.mobile};
       line-height: 1.4;
+      word-break: break-word;
     }
   }
 `;

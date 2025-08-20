@@ -33,16 +33,23 @@ export const StyledIntroduceContainer = styled.div`
     font-size: 4rem;
     color: #343d46;
     font-weight: bold;
-    animation-fill-mode: forwards; // 애니메이션이 끝난 후에도 최종 상태를 유지
+    animation-fill-mode: forwards;
     margin: 0;
     line-height: 1.2;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
 
     ${media.tablet} {
       font-size: 3rem;
     }
 
     ${media.mobile} {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
+      word-break: break-word;
     }
   }
 

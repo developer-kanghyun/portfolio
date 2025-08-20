@@ -141,6 +141,9 @@ export const StyledAboutTextBox = styled.div`
   box-sizing: border-box;
   font-size: 1.125rem;
   padding: 1.2rem;
+  word-wrap: break-word;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 
   ${media.tablet} {
     flex: 1;
@@ -153,6 +156,7 @@ export const StyledAboutTextBox = styled.div`
     padding: 0;
     font-size: ${responsive.fontSize.body.mobile};
     line-height: 1.5;
+    word-break: break-word;
   }
 `;
 
