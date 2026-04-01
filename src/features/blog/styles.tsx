@@ -7,8 +7,7 @@ const slideDownAnimation = css`
 
 export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
   scroll-margin-top: 100px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
+  background-color: transparent;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,6 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
   ${media.mobile} {
     width: ${responsive.container.mobile};
     padding: ${responsive.spacing.section.mobile} 1rem;
-    border-radius: 8px;
   }
 
   h1,
@@ -35,12 +33,13 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
   }
 
   h1 {
-    color: #343d46;
-    font-weight: bolder;
+    color: var(--text-primary);
+    font-weight: 800;
     font-size: ${responsive.fontSize.h1.desktop};
     line-height: 1.2;
     margin: 0;
     text-align: center;
+    letter-spacing: -0.02em;
     ${({ $inView }) => $inView && slideDownAnimation}
 
     ${media.tablet} {
@@ -53,9 +52,9 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
   }
 
   p {
-    color: #9b9b9b;
+    color: var(--text-secondary);
     font-size: ${responsive.fontSize.body.desktop};
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: center;
     ${({ $inView }) =>
       $inView &&
@@ -65,12 +64,12 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
 
     ${media.tablet} {
       font-size: ${responsive.fontSize.body.tablet};
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     ${media.mobile} {
       font-size: ${responsive.fontSize.body.mobile};
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
   }
 
@@ -94,7 +93,7 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
     justify-content: center;
 
     ${media.tablet} {
-      gap: 1rem; // iPad에서 3개가 들어갈 수 있도록 간격 줄임
+      gap: 1.5rem;
     }
 
     ${media.mobile} {
@@ -105,22 +104,21 @@ export const StyledBlogContainer = styled.div<{ $inView?: boolean }>`
   }
 `;
 
-// 바깥 래퍼: 등장 애니메이션과 카드 위치만 담당
 export const StyledBlogWrapper = styled.div<{
   $inView?: boolean;
   $delay?: number;
 }>`
-  width: 320px;
+  width: 340px;
   cursor: pointer;
 
   ${media.tablet} {
-    width: 280px; // iPad에서 3개가 들어갈 수 있도록 줄임
+    width: 300px;
   }
 
   ${media.mobile} {
     width: 100%;
-    max-width: 350px;
-    margin-bottom: 1.5rem;
+    max-width: 380px;
+    margin-bottom: 0.5rem;
   }
 
   opacity: 0;
@@ -129,7 +127,7 @@ export const StyledBlogWrapper = styled.div<{
   ${({ $inView, $delay }) =>
     $inView &&
     css`
-      animation: slideUp 1s ease-in-out forwards;
+      animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: ${$delay || 0}s;
     `}
 
@@ -145,71 +143,71 @@ export const StyledBlogWrapper = styled.div<{
   }
 `;
 
-// 안쪽 래퍼: 실제 카드 디자인과 호버 효과를 담당
 export const StyledBlogContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
   overflow: hidden;
-  background-color: #ffffff;
   cursor: pointer;
 
-  /* 부드러운 전환 효과 */
   transition:
-    transform 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out;
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    transform: scale(1.05); /* 5% 확대 */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* 그림자 효과 강화 */
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px var(--accent-glow);
 
-    ${media.mobile} {
-      transform: scale(1.02); // 모바일에서는 호버 효과 줄임
+    img {
+      opacity: 1;
     }
   }
 
   &:active {
-    transform: scale(0.98); /* 클릭 시 살짝 축소 */
+    transform: scale(0.98);
   }
 
   ${media.mobile} {
-    border-radius: 6px;
     &:hover {
-      transform: none; // 모바일에서는 호버 효과 제거
+      transform: none;
+      box-shadow: none;
     }
     &:active {
-      transform: scale(0.98); // 모바일에서도 클릭 효과 유지
+      transform: scale(0.98);
     }
   }
 `;
 
-// 이미지 포토박스
 export const StyledBlogPhotoBox = styled.div`
-  height: 220px;
+  height: 200px;
   width: 100%;
+  border-bottom: 1px solid var(--border-color);
 
   ${media.tablet} {
-    height: 200px;
+    height: 180px;
   }
 
   ${media.mobile} {
-    height: 180px;
+    height: 160px;
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
   }
 `;
 
-// 텍스트를 보여주는 박스
 export const StyledBlogTextBox = styled.div`
-  background-color: #ffffff;
-  color: #343d46;
+  background-color: transparent;
   width: 100%;
   box-sizing: border-box;
   padding: 1.5rem;
@@ -218,42 +216,35 @@ export const StyledBlogTextBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  ${media.tablet} {
-    padding: 1.2rem;
-  }
-
-  ${media.mobile} {
-    padding: 1rem;
-  }
-
   h3 {
-    color: #343d46;
-    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 0.5rem 0;
     line-height: 1.3;
+    letter-spacing: -0.01em;
 
     ${media.tablet} {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     ${media.mobile} {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 
   p {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
 
     ${media.tablet} {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     ${media.mobile} {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       line-height: 1.5;
     }
   }

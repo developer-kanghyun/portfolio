@@ -1,88 +1,64 @@
-import { useState, useEffect } from 'react';
-import { StyledHeader, StyledLogo } from './styles';
-import logo from '../../asset/images/logo.svg';
+import { useEffect, useState } from 'react';
+
+const SECTIONS = ['hero', 'core', 'infra', 'works'];
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    const fullPageContainer = document.querySelector('[data-fullpage="true"]');
-    if (fullPageContainer) {
-      fullPageContainer.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  const [scrollPos, setScrollPos] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
 
   const scrollToSection = (sectionId: string) => {
+    const scrollArea = document.getElementById('scroll-container');
     const section = document.getElementById(sectionId);
-    const fullPageContainer = document.querySelector('[data-fullpage="true"]');
-    
-    if (section && fullPageContainer) {
-      // 풀페이지 컨테이너에서 스크롤
-      const sectionTop = section.offsetTop;
-      fullPageContainer.scrollTo({
-        top: sectionTop,
-        behavior: 'smooth'
-      });
-    } else if (section) {
-      // 일반 스크롤
-      section.scrollIntoView({ behavior: 'smooth' });
+    if (section && scrollArea) {
+      scrollArea.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
     }
   };
 
   useEffect(() => {
-    const handleFullPageScroll = (e: Event) => {
-      const target = e.target;
-      if (target && 'scrollTop' in target) {
-        const scrollY = (target as HTMLElement).scrollTop;
-        if (scrollY > 100) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      }
+    const scrollArea = document.getElementById('scroll-container');
+    if (!scrollArea) return;
+
+    const handleScroll = () => {
+      const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
+      if (maxScroll > 0) setScrollPos(scrollArea.scrollTop / maxScroll);
+
+      const scrollY = scrollArea.scrollTop + scrollArea.clientHeight * 0.35;
+      let current = 0;
+      SECTIONS.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = i;
+      });
+      setActiveSection(current);
     };
 
-    // 일반 스크롤 이벤트 (모바일/태블릿용)
-    window.addEventListener('scroll', handleScroll);
-    
-    // DOM이 로드된 후 이벤트 리스너 추가
-    const timer = setTimeout(() => {
-      const fullPageContainer = document.querySelector('[data-fullpage="true"]');
-      if (fullPageContainer) {
-        fullPageContainer.addEventListener('scroll', handleFullPageScroll);
-      }
-    }, 100);
+    scrollArea.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on mount to set initial limits
+    handleScroll();
 
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
-      const fullPageContainer = document.querySelector('[data-fullpage="true"]');
-      if (fullPageContainer) {
-        fullPageContainer.removeEventListener('scroll', handleFullPageScroll);
-      }
-    };
+    return () => scrollArea.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <StyledHeader $isVisible={isVisible}>
-      <StyledLogo src={logo} alt="logo" onClick={scrollToTop} />
-      <nav>
-        <a onClick={() => scrollToSection('about')}>개인 역량</a>
-        <a onClick={() => scrollToSection('skills')}>기술 스택</a>
-        <a onClick={() => scrollToSection('projects')}>프로젝트</a>
-        <a onClick={() => scrollToSection('blog')}>블로그</a>
-      </nav>
-    </StyledHeader>
+    <>
+      <header>
+        <div className="nav-links">
+          <a onClick={() => scrollToSection('hero')} className="hover-target" style={{ cursor: 'none' }}>Intro</a>
+          <a onClick={() => scrollToSection('core')} className="hover-target" style={{ cursor: 'none' }}>Core</a>
+          <a onClick={() => scrollToSection('infra')} className="hover-target" style={{ cursor: 'none' }}>Infra</a>
+          <a onClick={() => scrollToSection('works')} className="hover-target" style={{ cursor: 'none' }}>Works</a>
+        </div>
+        <div className="sys-status">
+          <span>SYS.OP.NORMAL</span>
+          <span id="scroll-metric">POS: {scrollPos.toFixed(3)}</span>
+        </div>
+      </header>
+
+      <div className="progress-indicator">
+        {SECTIONS.map((_, i) => (
+          <div key={i} className={`dot ${activeSection === i ? 'active' : ''}`} data-index={i}></div>
+        ))}
+      </div>
+    </>
   );
 };
 
