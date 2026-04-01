@@ -2,49 +2,25 @@
 
 const About = () => {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
       <div className="reveal">
-        <span className="kicker">02 / Infrastructure</span>
-        <h2>DevOps & Delivery</h2>
-        <p className="body-large serif-italic" style={{ marginTop: '1vh' }}>
-          Bridging the gap between the interface and the metal.
-        </p>
+        <span className="kicker">02 / Philosophy</span>
+        <h2 style={{ marginBottom: '4vh' }}>Engineering Mindset</h2>
       </div>
       
-      <div className="infra-grid reveal delay-1">
-        <div className="infra-card hover-target">
-          <div className="ic-top">
-            <span className="ic-icon">DK</span>
-            <span className="skill-meta">Containerization</span>
-          </div>
-          <div>
-            <h3 className="ic-title">Docker</h3>
-            <p className="body-large" style={{ fontSize: '1rem' }}>Multi-stage builds, isolated environments, compose orchestration.</p>
-          </div>
-        </div>
-        <div className="infra-card hover-target">
-          <div className="ic-top">
-            <span className="ic-icon">NX</span>
-            <span className="skill-meta">Routing</span>
-          </div>
-          <div>
-            <h3 className="ic-title">Nginx</h3>
-            <p className="body-large" style={{ fontSize: '1rem' }}>Reverse proxying, load balancing, SSL termination, caching layers.</p>
-          </div>
-        </div>
-        <div className="infra-card hover-target">
-          <div className="ic-top">
-            <span className="ic-icon">CI</span>
-            <span className="skill-meta">Pipelines</span>
-          </div>
-          <div>
-            <h3 className="ic-title">GH Actions</h3>
-            <p className="body-large" style={{ fontSize: '1rem' }}>Automated testing, build processes, and zero-downtime deployments.</p>
-          </div>
-        </div>
+      <div className="reveal delay-1" style={{ maxWidth: '800px' }}>
+        <p className="body-large" style={{ fontSize: '1.8rem', lineHeight: 1.5, marginBottom: '4vh', wordBreak: 'keep-all', color: 'var(--text-primary)', fontWeight: 350, opacity: 0.9 }}>
+          "빠른 속도로 발전하는 새로운 기술 동향 파악과 기술 학습을 두려워하지 않으며, <br />
+          새로운 기술을 활용하여 성능 최적화와 사용자 경험 향상에 적극적으로 접목합니다."
+        </p>
+        <p className="body-large serif" style={{ fontSize: '1.4rem', wordBreak: 'keep-all', color: 'var(--text-primary)', fontWeight: 350, opacity: 0.9 }}>
+          픽셀 단위의 작은 차이까지 신경 쓰는 꼼꼼함으로 <br />
+          디테일은 높은 완성도를 만듭니다.
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 
 export default About;
+

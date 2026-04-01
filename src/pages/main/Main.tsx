@@ -1,12 +1,12 @@
-
 import Header from '../../features/header/Header.tsx';
 import ScrollWireframe from '../../components/background/ScrollWireframe.tsx';
 import { useSectionObserver } from '../../hooks/useSectionObserver.ts';
 
 import Introduce from '../../features/introduce/Introduce.tsx';
 import Skills from '../../features/skills/Skills.tsx';
-import Infra from '../../features/about/About.tsx'; // using About for Infra
+import About from '../../features/about/About.tsx';
 import Project from '../../features/projects/Project.tsx';
+import Contact from '../../features/contact/Contact.tsx';
 
 const Main = () => {
   useSectionObserver('#scroll-container');
@@ -16,7 +16,6 @@ const Main = () => {
     const scrollTop = scrollContainer.scrollTop;
     const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
     
-    // Prevent divide by zero on initial render if layout isn't painted
     const scrollProgress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
     document.documentElement.style.setProperty('--scroll-progress', `${scrollProgress}`);
   };
@@ -36,11 +35,15 @@ const Main = () => {
         </section>
 
         <section id="infra" className="obs-section">
-          <Infra />
+          <About />
         </section>
 
         <section id="works" className="obs-section">
           <Project />
+        </section>
+
+        <section id="contact" className="obs-section">
+          <Contact />
         </section>
       </main>
     </>
@@ -48,3 +51,4 @@ const Main = () => {
 };
 
 export default Main;
+

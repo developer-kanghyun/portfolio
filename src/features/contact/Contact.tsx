@@ -1,60 +1,50 @@
-import {
-  StyledContactContainer,
-  StyledSectionNumBig,
-  StyledSectionLabel,
-  StyledContactHeading,
-  StyledContactSubtitle,
-  StyledContactLinks,
-  StyledContactRow,
-  StyledFooter,
-} from './styles.tsx';
-import frontendCV from '../../asset/frontend-cv.pdf';
 
-const contactLinks = [
-  { type: 'Email',  label: 'dev.kanghyun@gmail.com',   href: 'mailto:dev.kanghyun@gmail.com',        external: false, download: undefined },
-  { type: 'GitHub', label: 'developer-kanghyun',        href: 'https://github.com/developer-kanghyun', external: true,  download: undefined },
-  { type: 'Blog',   label: 'dev-kanghyun.tistory.com',  href: 'https://dev-kanghyun.tistory.com/',    external: true,  download: undefined },
-  { type: 'Resume', label: '이력서 다운로드',               href: frontendCV,                              external: false, download: '프론트엔드-김강현.pdf' },
-];
+const Contact = () => {
+  return (
+    <div className="grid-layout">
+      <div className="reveal">
+        <div className="section-index">04/</div>
+        <span className="kicker" style={{ marginTop: '2vh' }}>Get In Touch</span>
+      </div>
+      <div className="reveal delay-1">
+        <h2 style={{ fontSize: '4rem', marginBottom: '4vh' }}>Connections</h2>
 
-const Contact = () => (
-  <StyledContactContainer id="contact">
-    <StyledSectionNumBig>04</StyledSectionNumBig>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4vh', marginTop: '4vh' }}>
+          <div className="contact-item">
+            <span className="skill-meta">GitHub</span>
+            <a href="https://github.com/developer-kanghyun" target="_blank" rel="noreferrer" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--fg)', fontSize: '1.5rem', marginTop: '1vh' }}>
+              developer-kanghyun
+            </a>
+          </div>
 
-    <StyledSectionLabel>
-      <span className="section-num">04</span>
-      <span className="divider">/</span>
-      <span className="section-title">CONTACT</span>
-    </StyledSectionLabel>
+          <div className="contact-item">
+            <span className="skill-meta">Blog</span>
+            <a href="https://dev-kanghyun.tistory.com/" target="_blank" rel="noreferrer" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--fg)', fontSize: '1.5rem', marginTop: '1vh' }}>
+              dev-kanghyun.tistory.com
+            </a>
+          </div>
 
-    <StyledContactHeading>연락하기</StyledContactHeading>
-    <StyledContactSubtitle>
-      새로운 기회와 협업을 환영합니다.
-    </StyledContactSubtitle>
+          <div className="contact-item">
+            <span className="skill-meta">Email</span>
+            <a href="mailto:dev.kanghyun@gmail.com" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--fg)', fontSize: '1.5rem', marginTop: '1vh' }}>
+              dev.kanghyun@gmail.com
+            </a>
+          </div>
 
-    <StyledContactLinks>
-      {contactLinks.map((link, i) => (
-        <StyledContactRow
-          key={link.type}
-          href={link.href}
-          target={link.external ? '_blank' : undefined}
-          rel={link.external ? 'noopener noreferrer' : undefined}
-          download={link.download}
-          style={{ animationDelay: `${i * 0.07}s` }}
-        >
-          <span className="link-type">{link.type}</span>
-          <span className="link-label">{link.label}</span>
-          <span className="link-arrow">↗</span>
-        </StyledContactRow>
-      ))}
-    </StyledContactLinks>
+          <div className="contact-item">
+            <span className="skill-meta">Resume</span>
+            <a href="/portfolio.html" target="_blank" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--accent)', fontWeight: 'bold', fontSize: '1.5rem', marginTop: '1vh' }}>
+              Download CV (PDF/HTML)
+            </a>
+          </div>
+        </div>
 
-    <StyledFooter>
-      <span>© 2025 KIM KANGHYUN</span>
-      <span>BUILT WITH REACT + TYPESCRIPT</span>
-      <span>SEOUL · KR</span>
-    </StyledFooter>
-  </StyledContactContainer>
-);
+        <footer style={{ marginTop: '10vh', padding: '4vh 0', borderTop: '1px solid var(--line)', opacity: 0.5 }}>
+          <p className="skill-meta">© 2026 Designed & Built by Kanghyun Kim. Software Engineering Portfolio.</p>
+        </footer>
+      </div>
+    </div>
+  );
+};
 
 export default Contact;

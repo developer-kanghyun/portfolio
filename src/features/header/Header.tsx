@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const SECTIONS = ['hero', 'core', 'infra', 'works'];
+const SECTIONS = ['hero', 'core', 'infra', 'works', 'contact'];
 
 const Header = () => {
-  const [scrollPos, setScrollPos] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
 
   const scrollToSection = (sectionId: string) => {
@@ -19,15 +18,18 @@ const Header = () => {
     if (!scrollArea) return;
 
     const handleScroll = () => {
-      const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
-      if (maxScroll > 0) setScrollPos(scrollArea.scrollTop / maxScroll);
-
       const scrollY = scrollArea.scrollTop + scrollArea.clientHeight * 0.35;
       let current = 0;
       SECTIONS.forEach((id, i) => {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollY) current = i;
       });
+
+      // If scrolled to the very bottom of the page, forcefully active the last section
+      if (Math.ceil(scrollArea.scrollTop + scrollArea.clientHeight) >= scrollArea.scrollHeight - 10) {
+        current = SECTIONS.length - 1;
+      }
+
       setActiveSection(current);
     };
 
@@ -44,12 +46,9 @@ const Header = () => {
         <div className="nav-links">
           <a onClick={() => scrollToSection('hero')} className="hover-target" style={{ cursor: 'none' }}>Intro</a>
           <a onClick={() => scrollToSection('core')} className="hover-target" style={{ cursor: 'none' }}>Core</a>
-          <a onClick={() => scrollToSection('infra')} className="hover-target" style={{ cursor: 'none' }}>Infra</a>
+          <a onClick={() => scrollToSection('infra')} className="hover-target" style={{ cursor: 'none' }}>Philosophy</a>
           <a onClick={() => scrollToSection('works')} className="hover-target" style={{ cursor: 'none' }}>Works</a>
-        </div>
-        <div className="sys-status">
-          <span>SYS.OP.NORMAL</span>
-          <span id="scroll-metric">POS: {scrollPos.toFixed(3)}</span>
+          <a onClick={() => scrollToSection('contact')} className="hover-target" style={{ cursor: 'none' }}>Contact</a>
         </div>
       </header>
 
