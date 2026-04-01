@@ -33,8 +33,8 @@ const Contact = () => {
 
           <div className="contact-item">
             <span className="skill-meta">Resume</span>
-            <a href="/portfolio.html" target="_blank" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--accent)', fontWeight: 'bold', fontSize: '1.5rem', marginTop: '1vh' }}>
-              Download CV (PDF/HTML)
+            <a href="/portfolio-2026.pdf" target="_blank" className="body-large hover-target" style={{ display: 'block', textDecoration: 'none', color: 'var(--accent)', fontWeight: 'bold', fontSize: '1.5rem', marginTop: '1vh' }}>
+              Download CV (PDF)
             </a>
           </div>
         </div>
