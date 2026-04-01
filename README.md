@@ -1,72 +1,56 @@
-# 개인 포트폴리오 웹사이트
+<div align="center">
+  <img src="./public/images/portfolio-cover.png" alt="Portfolio Cover" width="100%" />
+</div>
 
-React와 TypeScript를 기반으로 제작된 개발자 개인 포트폴리오 웹사이트입니다. 미니멀한 디자인과 동적인 사용자 경험에 초점을 맞추어 프로젝트, 기술 스택, 개인 역량 등을 소개합니다.
+<br />
 
-## ✨ 주요 기능
+# 👨🏻‍💻 안녕하세요, 상상을 코드로 그려내는 개발자 김강현입니다.
 
-- **🎨 모던하고 미니멀한 UI/UX** : 사용자가 내용에 집중할 수 있도록 간결한 디자인을 적용했습니다.
-- **📱 반응형 디자인** : 데스크톱, 태블릿, 모바일 등 모든 디바이스에서 최적화된 화면을 제공합니다.
-- **🚀 동적 스크롤 애니메이션** : `Intersection Observer`를 활용하여 스크롤 시 각 섹션이 부드럽게 나타나는 애니메이션을 구현했습니다.
-- **🖱️ 풀페이지 스크롤 (데스크톱)** : 데스크톱 환경에서는 마우스 휠을 통해 섹션 단위로 부드럽게 이동하는 풀페이지 스크롤 경험을 제공합니다.
-- **📦 모달을 통한 상세 정보** : 프로젝트 카드를 클릭하면 페이지 이동 없이 모달 창을 통해 상세한 정보를 확인할 수 있습니다.
-- **🐳 Docker 기반 배포** : Docker와 Nginx를 활용하여 개발 환경과 배포 환경을 일치시키고, 안정적인 서비스 운영이 가능하도록 구축했습니다.
+> *"빠른 속도로 발전하는 새로운 기술 동향 파악과 기술 학습을 두려워하지 않으며,<br/>픽셀 단위의 작은 차이까지 신경 쓰는 꼼꼼함으로 디테일이 살아있는 높은 완성도를 만듭니다."*
 
-## 🛠️ 사용된 기술
+<br/>
 
-### Frontend
-- **React**
-- **TypeScript**
-- **Vite** : 빠른 개발 서버와 최적화된 빌드를 제공합니다.
-- **Styled-Components** : 컴포넌트 기반의 동적 스타일링을 구현합니다.
-- **React Router DOM** : SPA(Single Page Application)의 라우팅을 관리합니다.
-- **React-Intersection-Observer** : 스크롤 기반 애니메이션을 효율적으로 처리합니다.
+## 🧭 My Engineering Philosophy
+**기술을 통해 사용자에게 즐거움과 가치를 제공하고자 합니다.**
+- **견고한 아키텍처**: 겉보기에만 화려한 앱이 아니라, 클린 아키텍처(Clean Architecture)와 FSD(Feature-Sliced Design)를 고민하며 비즈니스 로직과 UI 영역을 명확히 분리합니다.
+- **테스트 주도 개발**: TDD 기반의 개발(Red-Green-Refactor)을 통해 코드의 무결성을 증명하고, 유지보수하기 좋은 구조를 지향합니다.
+- **최적화와 디테일**: 3단계 Fallback 전략, Optimistic UI 패턴 등 사용자가 조금이라도 더 빠르고 쾌적하게 느낄 수 있는 방법론을 고민하고 즉각 도입합니다.
 
-### Deployment
-- **Docker** : 애플리케이션을 컨테이너화하여 일관된 환경을 보장합니다.
-- **Nginx** : 웹 서버 및 리버스 프록시 역할을 수행합니다.
+<br/>
 
-## 📂 프로젝트 구조
+## 💡 Core Competencies
 
-```
-/src
-├── asset/              # 이미지, 폰트 등 정적 에셋
-├── components/         # 공통 재사용 컴포넌트 (Modal, TechStack 등)
-├── config/             # 프로젝트 설정 값
-├── data/               # 프로젝트, 스킬 등 정적 데이터
-├── features/           # 주요 기능별 컴포넌트 (About, Blog, Projects 등)
-├── hooks/              # 커스텀 훅 (useModal 등)
-├── pages/              # 페이지 단위 컴포넌트
-├── styles/             # 전역 스타일 및 반응형 브레이크포인트
-└── types/              # 공통 타입 정의
-```
+### 🎨 Frontend
+- **React, Next.js(App Router)** 생태계를 주력으로 다룹니다.
+- **TypeScript**를 활용해 타입 안전성이 보장된 확장이 용이한 인터페이스를 구축합니다.
+- 복잡한 전역 상태는 **Zustand**, 서버 상태 및 캐싱 관리는 **TanStack Query**로 명확히 나누어 관리합니다.
+- 무거운 외부 라이브러리에 의존하지 않고, **Native Observer API**와 **Vanilla CSS**를 활용해 퍼포먼스를 극대화한 극한의 반응형 UI/UX를 구현하는 것을 좋아합니다.
 
-## 🚀 시작하기
+### ⚙️ Backend & Architecture
+- **NestJS**와 **Spring Boot**를 활용하여 백엔드 비즈니스 로직을 튼튼하게 설계합니다.
+- **PostgreSQL**, **Redis**, **Prisma**를 다루며 효율적인 RDBMS 스키마 설계 및 캐싱 전략을 구성할 수 있습니다.
 
-### 1. 프로젝트 클론 및 의존성 설치
-```bash
-git clone https://github.com/developer-kanghyun/portfolio.git
-cd portfolio
-npm install
-```
+### 🚀 DevOps & Infra
+- **Docker** 컨테이너 기반으로 서비스를 일관되게 패키징합니다.
+- **GitHub Actions**, **AWS S3**, **Vercel** 환경을 조합하여 CI/CD 배포 파이프라인을 직접 구축하고 운영합니다.
 
-### 2. 개발 서버 실행
-```bash
-npm run dev
-```
-이제 `http://localhost:5173` (또는 터미널에 표시된 다른 포트)에서 프로젝트를 확인할 수 있습니다.
+<br/>
 
-## 🐳 배포하기
+## 📂 Selected Projects
 
-이 프로젝트는 Docker를 이용한 배포를 지원합니다. Docker가 설치되어 있다면 아래 스크립트를 실행하여 손쉽게 배포할 수 있습니다.
+| 프로젝트명 | 간략 소개 | 핵심 스택 & 기술적 하이라이트 |
+| :--- | :--- | :--- |
+| **[The Habit](https://github.com/developer-kanghyun/the-habit)** | PWA 기반 모바일 퍼스트 습관 트래커 | `Next.js`, `Prisma`, `PWA` <br/>- **Clean Architecture** 전면 적용<br/>- Web Push 알림 및 모바일 프로덕션 배포 |
+| **[Interview Mate](https://github.com/developer-kanghyun/Interview-mate)** | AI 면접 연습 풀스택 플랫폼 | `Next.js 14`, `Spring Boot`, `Redis` <br/>- **TDD (테스트 주도 개발)** 적용<br/>- **FSD + AI Layer** 3계층 아키텍처 결합 설계 |
+| **[High-Yield Trading](https://github.com/developer-kanghyun/high-yield-trading-system)** | 개발자용 주식 실시간 자동매매 시스템 | `NestJS 10`, `PostgreSQL`, `Socket.IO` <br/>- 멀티 브로커 어댑터 패턴 추상화 개발<br/>- 웹소켓 시세 스트리밍 실시간 처리 파이프라인 |
+| **[Weather Check](https://github.com/developer-kanghyun/Weather-Check)** | 한국 지명 특화 자연어 날씨 서비스 | `React 18`, `TanStack Query`, `Tailwind` <br/>- **3-Tier Fallback** 전략으로 지명 인식률 99% 달성<br/>- **Optimistic UI** 패턴으로 지연율 체감 향상 |
 
-1. **실행 권한 부여**
-   ```bash
-   chmod +x deploy.sh
-   ```
+> _이 외에도 OTT 통합 검색 최적화(Flic Flow), 공간 예약 시스템(TtaBook) 등 본 프로젝트의 `src/features/projects/Project.tsx` 탭이나 깃허브에서 더 많은 프로젝트를 확인하실 수 있습니다._
 
-2. **배포 스크립트 실행**
-   ```bash
-   ./deploy.sh [포트번호]
-   ```
-   - `[포트번호]`를 지정하지 않으면 기본값으로 `3001` 포트에서 실행됩니다.
-   - 예: `./deploy.sh 8080` (8080 포트로 실행)
+<br/>
+
+## 📬 Get In Touch
+* 📌 **Portfolio Website**: [kanghyun.dev](https://www.kanghyun.dev) (Live)
+* 📄 **Resume PDF**: [Download CV](https://www.kanghyun.dev/portfolio-2026.pdf)
+* 📧 **Email**: dev.kanghyun@gmail.com
+* 📝 **Tech Blog**: [dev-kanghyun.tistory.com](https://dev-kanghyun.tistory.com/)
